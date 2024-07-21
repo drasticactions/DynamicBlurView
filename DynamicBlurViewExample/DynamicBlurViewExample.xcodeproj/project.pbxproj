@@ -43,7 +43,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = C7F310BF1AD5787D006D95AD /* DynamicBlurView.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = C7F310481AD572FB006D95AD;
+			remoteGlobalIDString = "DynamicBlurView::DynamicBlurView";
 			remoteInfo = DynamicBlurView;
 		};
 /* End PBXContainerItemProxy section */
@@ -63,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3AFE89AA2C4D35AE002254CA /* DynamicBlurViewExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DynamicBlurViewExample.entitlements; sourceTree = "<group>"; };
 		C7F3109A1AD5778E006D95AD /* DynamicBlurViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicBlurViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F3109E1AD5778E006D95AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7F3109F1AD5778E006D95AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		C7F3109C1AD5778E006D95AD /* DynamicBlurViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				3AFE89AA2C4D35AE002254CA /* DynamicBlurViewExample.entitlements */,
 				C7F3109F1AD5778E006D95AD /* AppDelegate.swift */,
 				C7F310A11AD5778E006D95AD /* ViewController.swift */,
 				C7F310A31AD5778E006D95AD /* Main.storyboard */,
@@ -214,6 +216,7 @@
 				TargetAttributes = {
 					C7F310991AD5778E006D95AD = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 4RY43FCKF8;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
@@ -450,17 +453,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DynamicBlurViewExample/DynamicBlurViewExample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4RY43FCKF8;
 				INFOPLIST_FILE = DynamicBlurViewExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kyoheiito.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -469,16 +477,21 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DynamicBlurViewExample/DynamicBlurViewExample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4RY43FCKF8;
 				INFOPLIST_FILE = DynamicBlurViewExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kyoheiito.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
