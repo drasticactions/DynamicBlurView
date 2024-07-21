@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class DynamicBlurView: UIView {
+@objc open class DynamicBlurView: UIView {
     open override class var layerClass: AnyClass {
         BlurLayer.self
     }
@@ -35,13 +35,13 @@ open class DynamicBlurView: UIView {
     }
 
     /// Radius of blur.
-    open var blurRadius: CGFloat {
+    @objc open var blurRadius: CGFloat {
         get { blurLayer.blurRadius }
         set { blurLayer.blurRadius = newValue }
     }
 
     /// Default is none.
-    open var trackingMode: TrackingMode = .none {
+    @objc open var trackingMode: TrackingMode = .none {
         didSet {
             if trackingMode != oldValue {
                 linkForDisplay()
@@ -50,19 +50,19 @@ open class DynamicBlurView: UIView {
     }
 
     /// Blend color.
-    open var blendColor: UIColor?
+    @objc open var blendColor: UIColor?
 
 	/// Blend mode.
-    open var blendMode: CGBlendMode = .plusLighter
+    @objc open var blendMode: CGBlendMode = .plusLighter
 
     /// Default is 3.
-    open var iterations = 3
+    @objc open var iterations = 3
 
     /// If the view want to render beyond the layer, should be true.
-    open var isDeepRendering = false
+    @objc open var isDeepRendering = false
 
     /// When none of tracking mode, it can change the radius of blur with the ratio. Should set from 0 to 1.
-    open var blurRatio: CGFloat = 1 {
+    @objc open var blurRatio: CGFloat = 1 {
         didSet {
             if oldValue != blurRatio, let blurredImage = staticImage.flatMap(imageBlurred) {
                 blurLayer.draw(blurredImage)
@@ -71,7 +71,7 @@ open class DynamicBlurView: UIView {
     }
 
     /// Quality of captured image.
-    open var quality: CaptureQuality {
+    @objc open var quality: CaptureQuality {
         get { blurLayer.quality }
         set { blurLayer.quality = newValue }
     }
@@ -137,7 +137,7 @@ extension DynamicBlurView {
 extension DynamicBlurView {
     private func linkForDisplay() {
         displayLink = UIScreen.main.displayLink(withTarget: self, selector: #selector(DynamicBlurView.displayDidRefresh(_:)))
-        displayLink?.add(to: .main, forMode: RunLoop.Mode(rawValue: trackingMode.description))
+        displayLink?.add(to: .main, forMode: RunLoop.Mode(rawValue: TrackingModeHelper.description(forMode: trackingMode)))
     }
 
     @objc private func displayDidRefresh(_ displayLink: CADisplayLink) {
@@ -147,7 +147,7 @@ extension DynamicBlurView {
 
 extension DynamicBlurView {
     /// Remove cache of blur image then get it again.
-    open func refresh() {
+    public func refresh() {
         blurLayer.refresh()
         staticImage = nil
         blurRatio = 1
@@ -155,7 +155,7 @@ extension DynamicBlurView {
     }
 
     /// Remove cache of blur image.
-    open func remove() {
+    public func remove() {
         blurLayer.refresh()
         staticImage = nil
         blurRatio = 1

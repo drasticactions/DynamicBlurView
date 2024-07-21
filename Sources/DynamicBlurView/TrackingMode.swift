@@ -8,13 +8,16 @@
 
 import UIKit
 
-public enum TrackingMode: CustomStringConvertible {
+@objc public enum TrackingMode: Int {
     case tracking
     case common
     case none
+}
 
-    public var description: String {
-        switch self {
+@objc public class TrackingModeHelper: NSObject {
+    
+    @objc public static func description(forMode mode: TrackingMode) -> String {
+        switch mode {
         case .tracking:
             return RunLoop.Mode.tracking.rawValue
         case .common:

@@ -10,13 +10,13 @@ import UIKit
 
 extension CGContext {
     static func imageContext(in rect: CGRect, isOpaque opaque: Bool, quality: CaptureQuality) -> CGContext? {
-        UIGraphicsBeginImageContextWithOptions(rect.size, opaque, quality.imageScale)
+        UIGraphicsBeginImageContextWithOptions(rect.size, opaque, CaptureQualityHelper.imageScale(forQuality: quality))
         guard let context = UIGraphicsGetCurrentContext() else {
             return nil
         }
 
         context.translateBy(x: -rect.origin.x, y: -rect.origin.y)
-        context.interpolationQuality = quality.interpolationQuality
+        context.interpolationQuality = CaptureQualityHelper.interpolationQuality(forQuality: quality)
 
         return context
     }

@@ -8,23 +8,26 @@
 
 import UIKit
 
-public enum CaptureQuality {
+@objc public enum CaptureQuality: Int {
     case `default`
     case low
     case medium
     case high
+}
 
-    var imageScale: CGFloat {
-        switch self {
+@objc public class CaptureQualityHelper: NSObject {
+    
+    @objc public static func imageScale(forQuality quality: CaptureQuality) -> CGFloat {
+        switch quality {
         case .default, .high:
             return 0
         case .low, .medium:
-            return  1
+            return 1
         }
     }
-
-    var interpolationQuality: CGInterpolationQuality {
-        switch self {
+    
+    @objc public static func interpolationQuality(forQuality quality: CaptureQuality) -> CGInterpolationQuality {
+        switch quality {
         case .default, .low:
             return .none
         case .medium, .high:
