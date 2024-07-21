@@ -36,5 +36,11 @@ xcframework:
 	mkdir -p $(FRAMEWORKS)
 	mv $(BUILD_ROOT)/$(PROJECTNAME).xcframework $(FRAMEWORKS)/$(PROJECTNAME).xcframework
 
+dotnet:
+	dotnet build $(ROOT)/Dotnet
+
+nuget:
+	dotnet pack $(ROOT)/Dotnet --configuration Release
+
 sharpie:
 	sharpie bind --sdk=$(IOS_SDK) --output="$(BINDING_OUTPUT)" --namespace="Drastic.$(PROJECTNAME)" --scope="$(FRAMEWORKS)/$(PROJECTNAME).xcframework/ios-arm64/$(PROJECTNAME).framework/Headers" $(FRAMEWORKS)/$(PROJECTNAME).xcframework/ios-arm64/$(PROJECTNAME).framework/Headers/*.h

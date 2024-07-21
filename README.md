@@ -1,3 +1,7 @@
+# Drastic.DynamicBlurView
+
+This is an update to DynamicBlurView to support .NET iOS/Catalyst/tvOS applications. This library is not supported for production use. Use at your own risk.
+
 # DynamicBlurView
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
